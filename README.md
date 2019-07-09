@@ -30,7 +30,7 @@ FioAccountStatement statement = fio.getTransactions(new LocalDate(2019, 1, 1), n
 
 Get list of transactions from the **last download**:
 ```java
-FioAccountStatement statement = fio.newTransactions();
+FioAccountStatement statement = fio.getNewTransactions();
 ```
 
 ### Set last downloaded transaction
