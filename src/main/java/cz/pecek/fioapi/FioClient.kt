@@ -28,6 +28,21 @@ private const val SET_LAST_ID_PATH =
 private const val SET_LAST_DATE_PATH =
     "set-last-date/{$URL_ARG_TOKEN}/{$URL_ARG_DATE}/"
 
+/**
+ * FIO Bank API client.<br />
+ *
+ * Universal class which can be used in any Java/Kotlin project (also Android). It uses only pure
+ * Java API and allows to use any of library for connecting to HTTPS and parsing JSON response.
+ *
+ * To use this class the instances of [FioWebConnector] and [FioJsonConverter] should be created.
+ * First of all the <b>token</b> should be get from Internet Banking.
+ *
+ * Reponse from the server is parsed and converted to usable data classes. It allows only to GET
+ * the data from server, not to send a new payment order. Setting up the pointer of the last
+ * transaction or date touched when asking for new transactions is also supported.
+ *
+ * @see https://www.fio.cz/bankovni-sluzby/api-bankovnictvi
+ */
 class FioClient(
     /**
      * Instance of web connector (see [FioWebConnector])
@@ -101,7 +116,7 @@ class FioClient(
     /**
      * Set transaction pointer by date when asking for new transactions in [getNewTransactions]
      *
-     * @param date Date pointer
+     * @param date Date pointer to be set as a last visited date
      * @return response data form server
      */
     fun setTransactionPointerByDate(date: LocalDate): InputStream {
@@ -112,7 +127,7 @@ class FioClient(
     /**
      * Set transaction pointer by transaction ID when asking for new transactions in [getNewTransactions]
      *
-     * @param date Date pointer
+     * @param transactionId Transaction ID to be set as a last visited transaction
      * @return response data form server
      */
     fun setTransactionPointerById(transactionId: Int): InputStream {
