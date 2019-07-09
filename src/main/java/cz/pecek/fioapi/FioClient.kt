@@ -130,10 +130,10 @@ class FioClient(
      * @param transactionId Transaction ID to be set as a last visited transaction
      * @return response data form server
      */
-    fun setTransactionPointerById(transactionId: Int): InputStream {
+    fun setTransactionPointerById(transactionId: String): InputStream {
         val url = buildUrl(
             SET_LAST_ID_PATH,
-            mapOf(URL_ARG_TRANSACTION_ID to transactionId.toString())
+            mapOf(URL_ARG_TRANSACTION_ID to transactionId)
         )
         return executeRequest(url)
     }
