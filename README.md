@@ -18,7 +18,7 @@ FioClient fio = FioClient(urlConnector, gson, "mytoken");
 
 Get account statement with **the year and statement number**:
 ```java
-FioAccountStatement statement = fio.getStatement(2016, 1);
+FioAccountStatement statement = fio.getStatement(2019, 1);
 ```
 
 ### Get list of transactions
@@ -52,4 +52,4 @@ fio.setTransactionPointerById("123456789");
 - Jan Pěček
 
 ## Licence
-Licensed by [GNU GPL v3](LICENCE)
+Licensed by [GNU GPL v3](LICENSE)
