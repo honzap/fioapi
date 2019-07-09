@@ -63,7 +63,7 @@ class FioClient(
      */
     fun getTransactions(dateFrom: LocalDate, dateTo: LocalDate): FioAccountStatement {
         val url = buildUrl(
-            GET_STATEMENTS_PATH, mapOf(
+            GET_TRANSACTIONS_PATH, mapOf(
                 URL_ARG_DATE_FROM to dateFrom.toString(),
                 URL_ARG_DATE_TO to dateTo.toString()
             )
